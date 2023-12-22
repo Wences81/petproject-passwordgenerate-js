@@ -7,13 +7,16 @@ passwordEl.addEventListener('keypress', (e) => {
     e.preventDefault();
 });
 passwordEl.addEventListener('focus', (e) => {
-
+    navigator.clipboard.writeText(passwordEl.value);
 });
 
 const copyBtn = document.createElement('button');
 copyBtn.classList.add('password-button');
 copyBtn.innerText = 'Copy';
 copyBtn.addEventListener('click', (e) => {
+    passwordEl.select();
+    passwordEl.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(passwordEl.value);
 
 });
 
